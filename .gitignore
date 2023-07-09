@@ -451,5 +451,5 @@ __pycache__/
 *.py[cod]
 api/versioned/v1/__pycache__/
 api/versioned/v1/user/__pycache__/
-api/versioned/v2/user/__pycache__/
 .idea
+
