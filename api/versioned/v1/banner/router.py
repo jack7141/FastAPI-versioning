@@ -1,6 +1,7 @@
 from fastapi import APIRouter
-from .view import read_users
+from .view import create, list
 
 router = APIRouter()
 
-router.get("")(read_users)
+router.get("")(list)
+router.post("")(create)

@@ -13,12 +13,12 @@ app.include_router(v2_router, prefix="/api/v2")
 # 각 버전별 OpenAPI 스키마 생성
 @app.get("/api/v1/openapi.json", include_in_schema=False)
 async def v1_openapi():
-    return get_openapi(title="API v1", version="1.0.0", routes=v1_router.routes)
+    return get_openapi(title="API v1", version="1.0.0", routes=app.routes)
 
 
 @app.get("/api/v2/openapi.json", include_in_schema=False)
 async def v2_openapi():
-    return get_openapi(title="API v2", version="2.0.0", routes=v2_router.routes)
+    return get_openapi(title="API v2", version="2.0.0", routes=app.routes)
 
 
 # 각 버전별 문서
@@ -30,6 +30,7 @@ async def v1_docs():
 @app.get("/api/v2/docs", include_in_schema=False)
 async def v2_docs():
     return get_swagger_ui_html(openapi_url="/api/v2/openapi.json", title="API v2")
+
 
 if __name__ == "__main__":
     uvicorn.run("main:app", host="localhost", port=8000, reload=True)
