@@ -5,6 +5,7 @@ from fastapi.openapi.utils import get_openapi
 from api.versioned.v1.router import router as v1_router
 from api.versioned.v2.router import router as v2_router
 
+
 app = FastAPI(docs_url=None)
 app.include_router(v1_router, prefix="/api/v1")
 app.include_router(v2_router, prefix="/api/v2")
